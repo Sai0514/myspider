@@ -1,21 +1,51 @@
-# myspider
+# spider
+This is a spider demo based on Nodejs, and shown by Vue
 
-> a spider based on nodejs and shown by Vue
 
-## Build Setup
+1. 导入依赖库  
+   
+   		const https = require('https');
+   		const fs = require('fs');
+   		const cheerio = require('cheerio');
+   		const request = require('request');
+   
+2. 第三方API
 
-``` bash
-# install dependencies
-npm install
+   		var url = 'https://juejin.im/welcome/frontend';
+   		var path = 'https://juejin.im';
+   
+3. 爬取数据
 
-# serve with hot reload at localhost:8080
-npm run dev
+   		var fetchPage = function (x){
+	    	    https.get(x, function(res) {
+		       var html = '';
 
-# build for production with minification
-npm run build
+		       res.on('data', function (chunk){
+			   html += chunk;
+		       });
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+		       res.on('end', function (){
+			  var $ = cheerio.load(html);
+        		  // 通过选择器进行页面数据的爬取
+        		  ...
+      		      });
+    		    });
+   	        }
+4. 存入数据
+  
+  	 	fs.writeFile('data/juejin.html',html);
+	 	fs.writeFile('data/data.json',JSON.stringify(article));
+	 	fs.writeFile('data/img.json',JSON.stringify(image));
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+5. 基于Vue组件化开发
+	> axios 异步获取爬下来的数据：server/data/data.json
+	
+	> props 父组件向子组件传输数据
+	
+	> v-for 渲染爬虫列表
+	
+
+#### 问题： 
+  1. 目前图片是直接利用data.json中的link，后期考虑把图片也爬下来。因为大量的图片需要多页面下载，考虑使用async/await异步下载方法。
+  2. 输入框的作用是，模糊匹配达到输入关键词，实现过滤相关技术贴的功能，暂未实现。希望有兴趣的同学可以交流。
+  3. 目前前端和后台还是完全分离状态。必须先：执行server中的node spider.js生成最新的data.json，才能在主程序中npm 
