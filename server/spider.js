@@ -6,11 +6,11 @@
 
 const https = require('https');
 const fs = require('fs');
-const cheerio = require('cheerio');
-const request = require('request');
+const cheerio = require('cheerio');  // 类似于jQuery
+const request = require('request');  
 
-var url = 'https://juejin.im/welcome/frontend';
-var path = 'https://juejin.im';
+var url = 'https://juejin.im/welcome/frontend'; 
+var path = 'https://juejin.im'; 
 var reg = /^(http|https)/;
 
 var ERR_OK = 0;
@@ -71,7 +71,7 @@ var fetchPage = function (x){
 					return item.img;
 				})
 			};
-			fs.writeFileSync('data/juejin.html',html);
+			fs.writeFileSync('data/juejin.html',html);  // 同步写入
 			fs.writeFileSync('data/data.json',JSON.stringify(article));
 			fs.writeFileSync('data/img.json',JSON.stringify(image));
 		})
