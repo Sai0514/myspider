@@ -48,4 +48,5 @@ This is a spider demo based on Nodejs, and shown by Vue
 #### 问题： 
   1. 目前图片是直接利用data.json中的link，后期考虑把图片也爬下来。因为大量的图片需要多页面下载，考虑使用async/await异步下载方法。
   2. 输入框的作用是，模糊匹配达到输入关键词，实现过滤相关技术贴的功能，暂未实现。希望有兴趣的同学可以交流。
-  3. 目前前端和后台还是完全分离状态。必须先：执行server中的node spider.js生成最新的data.json，才能在主程序中npm 
+  3. 目前前端和后台还是完全分离状态。必须: 先进入server目录执行node spider.js生成最新的data.json，才能在主程序中npm run dev
+  4. 由于代码还需要完善，目前赞未build发布。server目录和主程序都需要先npm install加载依赖。
