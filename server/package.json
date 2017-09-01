@@ -1,15 +1,19 @@
 {
-  "name": "spider",
-  "version": "1.0.0",
-  "description": "this is a demo of spider",
-  "main": "spider.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "liruonan",
-  "license": "MIT",
-  "devDependencies": {
-    "cheerio": "^1.0.0-rc.1",
-    "request": "^2.81.0"
-  }
+    "name": "spider",
+    "version": "1.0.0",
+    "description": "this is a demo of spider",
+    "main": "spider.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "liruonan",
+    "license": "MIT",
+    "devDependencies": {
+        "cheerio": "^1.0.0-rc.1",
+        "request": "^2.81.0"
+    },
+    "dependencies": {
+        "async": "^2.5.0",
+        "superagent": "^3.6.0"
+    }
 }

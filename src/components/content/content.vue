@@ -3,15 +3,14 @@
 		<ul class="article-lists">
 			<li v-for="(item,index) in items" class="row">
 				<div class="left">
-					<a :href="item.link"><img :src="item.img" alt=""></a>
-				</div>
-				<div class="right">
 					<div><a :href="item.link" class="title">{{item.title}}</a></div>
 					<div class="detail">
 						<span>点赞: {{item.count}}</span>
 						<span>作者: {{item.username}}</span>
-						<span>{{item.date}}</span>
 					</div>
+				</div>
+				<div class="right">
+					<a :href="item.link"><img :src="item.img" alt=""></a>
 				</div>
 			</li>
 		</ul>
@@ -42,13 +41,7 @@ export default {
 			color: rgb(255, 255, 255);
 			padding: 5px 10px; 
 			.left{
-				img{
-					width: 60px;
-					height: 60px;
-				}
-				margin-right: 10px;
-			}
-			.right{
+				flex: 1;
 				.title{
 					font-size: 16px;
 					line-height: 1.5;
@@ -63,6 +56,15 @@ export default {
 						margin-right: 10px;
 					}
 				}
+			}
+			.right{
+				width: 60px;
+				height: 60px;
+				img{
+					width: 60px;
+					height: 60px;
+				}
+				margin-right: 10px;
 			}
 		}
 	}
