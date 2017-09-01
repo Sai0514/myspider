@@ -69,7 +69,7 @@ This is a spider demo based on Nodejs, and shown by Vue
             }
         });
 
-5. 基于Vue组件化开发
+6. 基于Vue组件化开发
 	> axios 异步获取爬下来的数据：server/data/data.json
 	
 	> props 父组件向子组件传输数据
